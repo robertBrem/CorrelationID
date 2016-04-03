@@ -36,7 +36,7 @@ public class OrderResource {
     @GET
     public void getOrders(@Suspended AsyncResponse response, @Context HttpHeaders httpHeaders) {
         CompletableFuture
-                .supplyAsync(this::getOrders)
+                .supplyAsync(this::getOrders, mes)
                 .thenApply(new Function<String, String>() {
                     @Override
                     public String apply(String message) {
